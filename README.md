@@ -1,5 +1,7 @@
 # pw-order-demo
 
+This is the official reference consumer project for `playwright-order-manager`. Use it to understand real-world package setup, fixture imports, ordered execution, report generation, verification flow, and programmatic usage.
+
 Reference consumer project for validating and learning [`playwright-order-manager`](https://www.npmjs.com/package/playwright-order-manager).
 
 This repo is intentionally small. Its job is to behave like a real Playwright project that installs the published package and proves that ordered execution, discovery, reporting, and tag-based bucketing all work as expected.

@@ -1,8 +1,17 @@
 # pw-order-demo
 
-Demo consumer project for validating [`playwright-order-manager`](https://www.npmjs.com/package/playwright-order-manager).
+Reference consumer project for validating and learning [`playwright-order-manager`](https://www.npmjs.com/package/playwright-order-manager).
 
 This repo is intentionally small. Its job is to behave like a real Playwright project that installs the published package and proves that ordered execution, discovery, reporting, and tag-based bucketing all work as expected.
+
+If you are learning the package, this repo is meant to be the practical companion to the main package docs.
+
+## Related Links
+
+- npm package: [`playwright-order-manager`](https://www.npmjs.com/package/playwright-order-manager)
+- source repository: [`rajeshyemul/playwright-order-manager`](https://github.com/rajeshyemul/playwright-order-manager)
+- programmatic usage guide: [PROGRAMMATIC-USAGE.md](./PROGRAMMATIC-USAGE.md)
+- verification checklist: [VERIFICATION.md](./VERIFICATION.md)
 
 ## What This Project Verifies
 
@@ -15,6 +24,8 @@ This demo validates that the published package works correctly in a downstream p
 - mixed priorities in a single file are split per test instead of per file
 - ordered reports are created successfully
 - cleanup tests still run last
+
+You can also use this repo as a reference implementation for adopting the package in your own Playwright project.
 
 ## Test Structure
 
@@ -48,6 +59,12 @@ The project then runs ordered execution through:
 ```bash
 npx pw-order --project=chromium
 ```
+
+If you want to understand the package source itself, use the main repository:
+
+- [`rajeshyemul/playwright-order-manager`](https://github.com/rajeshyemul/playwright-order-manager)
+
+If you want to understand how a consumer project integrates with it, use this demo repo.
 
 ## Scripts
 
@@ -138,6 +155,8 @@ npm run report:ordered
 
 This is not meant to be a full product test suite. It is a release-validation repo for the published package.
 
+It is also intended to be a reader-friendly example project that shows how to use the package in practice.
+
 It helps answer:
 
 - Does the published package install cleanly in a separate project?
@@ -145,3 +164,5 @@ It helps answer:
 - Does ordered execution work end to end?
 - Are reports generated correctly for a real consumer?
 - Do mixed-priority tests behave correctly after publication?
+
+If you are evaluating `playwright-order-manager`, start with the package README for features and installation, then use this repo to see a complete working example.

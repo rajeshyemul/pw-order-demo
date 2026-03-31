@@ -123,7 +123,7 @@ The tests navigate using `/todomvc`, which avoids the GitHub Pages root-path iss
 
 ## Verification Workflow
 
-For the full validation checklist, see [VERIFICATION.md](/Users/rajesh.yemul/Projects/pw-order-demo/VERIFICATION.md).
+For the full validation checklist, see [VERIFICATION.md](./VERIFICATION.md).
 
 The usual flow is:
 

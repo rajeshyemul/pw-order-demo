@@ -2,8 +2,6 @@
 
 This is the official reference consumer project for `playwright-order-manager`. Use it to understand real-world package setup, fixture imports, ordered execution, report generation, verification flow, and programmatic usage.
 
-Reference consumer project for validating and learning [`playwright-order-manager`](https://www.npmjs.com/package/playwright-order-manager).
-
 This repo is intentionally small. Its job is to behave like a real Playwright project that installs the published package and proves that ordered execution, discovery, reporting, and tag-based bucketing all work as expected.
 
 If you are learning the package, this repo is meant to be the practical companion to the main package docs.
@@ -25,6 +23,7 @@ This demo validates that the published package works correctly in a downstream p
 - tests are grouped into the correct ordered buckets
 - mixed priorities in a single file are split per test instead of per file
 - ordered reports are created successfully
+- programmatic usage works through `TestOrderManager.run(...)`
 - cleanup tests still run last
 
 You can also use this repo as a reference implementation for adopting the package in your own Playwright project.
@@ -77,6 +76,8 @@ npm test
 npm run test:headed
 npm run order
 npm run report:ordered
+npm run order:programmatic
+npm run report:programmatic
 ```
 
 What they do:
@@ -89,6 +90,10 @@ What they do:
   Runs the suite through `playwright-order-manager`
 - `npm run report:ordered`
   Opens the generated ordered HTML report at `ordered-results/ordered-report.html`
+- `npm run order:programmatic`
+  Runs ordered execution through a custom Node script that calls `TestOrderManager.run(...)`
+- `npm run report:programmatic`
+  Opens the programmatic ordered HTML report at `programmatic-results/ordered-report.html`
 
 ## Ordered Execution Expectations
 
@@ -134,6 +139,14 @@ These files are useful for validating:
 - final execution order
 - per-test result reporting
 
+The repo also includes a separate programmatic example flow that writes output to:
+
+```text
+programmatic-results/ordered-summary.json
+programmatic-results/ordered-discovery.json
+programmatic-results/ordered-report.html
+```
+
 ## Playwright Configuration Notes
 
 This project points Playwright at the TodoMVC demo app in [playwright.config.ts](/Users/rajesh.yemul/Projects/pw-order-demo/playwright.config.ts).
@@ -153,11 +166,20 @@ npm run order
 npm run report:ordered
 ```
 
+If you also want to understand the programmatic API in practice, run:
+
+```bash
+npm run order:programmatic
+npm run report:programmatic
+```
+
 ## Why This Repo Exists
 
-This is not meant to be a full product test suite. It is a release-validation repo for the published package.
+This repo exists to be the practical, reader-friendly reference implementation for `playwright-order-manager`.
 
-It is also intended to be a reader-friendly example project that shows how to use the package in practice.
+It shows how a real consumer project installs the package, imports the custom fixture, runs ordered execution, opens reports, verifies behavior, and uses the programmatic API.
+
+It also serves as a release-validation repo for the published package, but that is not its only purpose. The primary goal is to help readers understand how to consume the package correctly in their own Playwright projects.
 
 It helps answer:
 
@@ -166,5 +188,6 @@ It helps answer:
 - Does ordered execution work end to end?
 - Are reports generated correctly for a real consumer?
 - Do mixed-priority tests behave correctly after publication?
+- How do I use the package programmatically from my own Node script?
 
 If you are evaluating `playwright-order-manager`, start with the package README for features and installation, then use this repo to see a complete working example.

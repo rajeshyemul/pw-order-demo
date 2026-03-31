@@ -1,0 +1,7 @@
+node_modules/
+test-results/
+playwright-report/
+ordered-results/
+dist/
+*.tgz
+.DS_Store

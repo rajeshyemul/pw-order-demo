@@ -1,5 +1,9 @@
 # pw-order-demo
 
+[![npm version](https://img.shields.io/npm/v/playwright-order-manager)](https://www.npmjs.com/package/playwright-order-manager)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Reference Demo](https://img.shields.io/badge/Reference-Demo-blue)](https://github.com/rajeshyemul/playwright-order-manager)
+
 This is the official reference consumer project for `playwright-order-manager`. Use it to understand real-world package setup, fixture imports, ordered execution, report generation, verification flow, and programmatic usage.
 
 This repo is intentionally small. Its job is to behave like a real Playwright project that installs the published package and proves that ordered execution, discovery, reporting, and tag-based bucketing all work as expected.

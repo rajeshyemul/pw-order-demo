@@ -8,10 +8,12 @@
     "order": "pw-order --project=chromium",
     "report:ordered": "open ordered-results/ordered-report.html",
     "order:programmatic": "node scripts/programmatic-order.js",
-    "report:programmatic": "open programmatic-results/ordered-report.html"
+    "report:programmatic": "open programmatic-results/ordered-report.html",
+    "report:flaky": "playwright-flaky-report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.0",
+    "@playwright/test": "^1.59.1",
+    "playwright-flaky-tracker": "^1.0.0",
     "playwright-order-manager": "^0.1.5",
     "typescript": "^5.4.0"
   }

@@ -4,5 +4,6 @@ playwright-report/
 ordered-results/
 programmatic-results/
 dist/
+flaky-report/
 *.tgz
 .DS_Store

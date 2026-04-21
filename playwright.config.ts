@@ -1,8 +1,9 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
+import "dotenv/config";
 
 export default defineConfig({
   // Look for tests inside the tests/ folder
-  testDir: './tests',
+  testDir: "./tests",
 
   // Run tests in parallel within each file
   fullyParallel: false,
@@ -17,37 +18,48 @@ export default defineConfig({
   timeout: 30_000,
 
   reporter: [
-    ['list'],
-    ['playwright-flaky-tracker', {
-      enabled: undefined,          // config value wins over FLAKY_TRACKING when set
-      // All options are optional — defaults shown below
-      outputDir:          'flaky-report',  // where reports are written
-      runId:              undefined,       // optional run folder name under flaky-report/runs/
-      maxRunsPerTest:     50,              // rolling history window
-      minRunsToClassify:  5,               // min runs before HIGH/MEDIUM/LOW assigned
-      highFlakyThreshold: 0.4,            // ≥ 40% flaky rate → HIGH
-      medFlakyThreshold:  0.2,            // ≥ 20% flaky rate → MEDIUM
-    }]
+    ["list"],
+    [
+      "playwright-flaky-tracker",
+      {
+        enabled: undefined, // config value wins over FLAKY_TRACKING when set
+        // All options are optional — defaults shown below
+        outputDir: "flaky-report", // where reports are written
+        runId: undefined, // optional run folder name under flaky-report/runs/
+        maxRunsPerTest: 50, // rolling history window
+        minRunsToClassify: 5, // min runs before HIGH/MEDIUM/LOW assigned
+        highFlakyThreshold: 0.4, // ≥ 40% flaky rate → HIGH
+        medFlakyThreshold: 0.2, // ≥ 20% flaky rate → MEDIUM
+      },
+    ],
+  [
+      "playwright-teams-reporter",
+      {
+        environment: "local",
+        includeTestCases: true,
+        maxTestCases: 50
+      }
+    ],
   ],
 
   use: {
     // The demo site we'll test against
-    baseURL: 'https://demo.playwright.dev/todomvc',
+    baseURL: "https://demo.playwright.dev/todomvc",
 
     // Take a screenshot on failure
-    screenshot: 'only-on-failure',
+    screenshot: "only-on-failure",
 
     // Record trace on first retry
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
   ],
 
   // Where Playwright writes its own output
-  outputDir: 'test-results',
+  outputDir: "test-results",
 });
